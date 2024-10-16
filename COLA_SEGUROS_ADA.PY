@@ -14,6 +14,12 @@ class Cola_Servicios:
         else:
             return 'No hay clientes en la cola'
 
+    def mostrar_cola(self):
+        if not self.cola:
+            print("No hay clientes en la cola.")
+        else:
+            print("Clientes en la cola:", list(self.cola))
+
 class SistemaColas:
     def __init__(self):
         self.colas = {
@@ -45,17 +51,27 @@ class SistemaColas:
                 print(f"Atendiendo al cliente del servicio {servicio}. Código de cliente: {codigo_cliente}")
             else:
                 print(f"Comando desconocido: {comando}")
+            
+           
+            self.mostrar_estado_colas()
+
         except ValueError:
             print("Entrada inválida. Asegúrate de ingresar el comando correctamente.")
         except KeyError:
             print("El servicio ingresado no es válido.")
+
+    def mostrar_estado_colas(self):
+        print("\nEstado actual de las colas:")
+        for servicio, cola in self.colas.items():
+            print(f"Servicio {servicio}: ", end="")
+            cola.mostrar_cola()
+
     def mostrar_servicios(self):
-        
-        print('Servicios Disponibles')
+        print("\nServicios Disponibles:")
         print('Servicio 1')
         print('Servicio 2')
         print('Servicio 3')
-        
+
 sistema = SistemaColas()
 
 while True:
@@ -64,9 +80,8 @@ while True:
     if entrada.lower() == 'salir':
         break
     sistema.manejar_entrada(entrada)
-
-    
-    
+        
+        
         
         
         

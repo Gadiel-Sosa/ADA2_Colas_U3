@@ -8,10 +8,11 @@ class Cola:
         self.elementos.append(valor)
         
     def desencolar(self):
-        return self.elementos.popleft()
+        print(self.elementos)
+        return self.elementos.popleft() 
     
     def esta_vacia(self):
-        return len(self.elementos) == 0
+        return len(self.elementos) == 0 
     
     def tamaño(self):
         return len(self.elementos)
@@ -45,16 +46,18 @@ cola_b.encolar(9)
 cola_b.encolar(11)
 cola_b.encolar(3)
 
+cola_a.desencolar()
+cola_b.desencolar()
+
 print("Cola A:")
 cola_a.mostrar()
-
 print("Cola B:")
 cola_b.mostrar()
-
 cola_resultado = sumar_colas(cola_a, cola_b)
-
 print("Cola Resultado:")
 cola_resultado.mostrar()
 
+    
+            
     
             
